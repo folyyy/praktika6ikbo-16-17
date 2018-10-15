@@ -1,0 +1,71 @@
+# praktika6ikbo-16-17
+
+________________________________
+Файл JavaApplication1.java
+
+package javaapplication1;
+
+public class JavaApplication1 {
+
+
+    
+    public static void main(String[] args) {
+        student s = new student();
+        s.getInfo();
+        s.sortId();
+        System.out.println("");
+        s.getInfo();
+    }
+    
+}
+
+________________________________
+Файл student.java
+
+package javaapplication1;
+import java.util.Scanner;
+
+public class student {
+    private String name[] = new String[3];
+    private int id[] = new int[3];
+    Scanner sc = new Scanner(System.in);
+    
+    /* Ввод данных о студентах в конструкторе через scanner.in */
+    public student() {
+        for (int i = 0; i < 3; i++) {
+            System.out.println("Введите имя студента " + i + ": ");
+            name[i] = sc.nextLine();
+        }
+        for (int i = 0; i < 3; i++) {
+            System.out.println("Введите id студента " + i + ": ");
+            id[i] = sc.nextInt();
+        }
+    }
+    
+    /* Функция вывода данных о студентах */
+    public void getInfo() {
+        for (int i = 0; i < 3; i++) {
+            System.out.println("Студент " + i + ": Имя: " + name[i] + ", id: " + id[i]);
+        }
+    }
+    
+    
+    /* Сортировка простым выбором */
+    public void sortId() { 
+            int min,tmp;
+        for (int i = 0; i < 2; i++ ) {
+            min = i;
+            for (int j = i+1; j < 3; j++) {
+                if (id[j] < id[min])
+                    min = j;
+            }
+               tmp = id[i];
+               id[i] = id[min];
+               id[min] = tmp;
+        }
+    }
+
+}
+
+
+
